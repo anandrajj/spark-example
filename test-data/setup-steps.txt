@@ -1,0 +1,31 @@
+Setting up the project
+----------------------
+1. Install sbt
+2. Create a dir with "projectname" [mkdir projectname]
+3. Create source structure with "src/main/scala" (For main code) and "src/test/scala" (Test cases, sbt executes tests under this). [mkdir -p projectname/src/main/scala]
+4. Create folder name "project" to store plugins for sbt.
+5. Copy a build.sbt from another sample project under "projectname" and update with spark dependency jars.
+6. Copy sbt plugins for eclipse (to generate eclipse project) and assembly jar to create fatjar for project execution.
+7. Execute following commands within the "projectname" folder.
+	1. sbt update
+	2. sbt eclipse
+8. Open the project in eclipse.
+9. Create new package under src/main/scala and create new Scala Object under the package.
+
+
+Executing the code from Eclipse IDE:
+-------------------------------------
+
+
+1. Right click on the module, then go to Run --> Run Configurations 
+	1. Under Main tab --> Register the projectname & MainClass Name
+	2. In Argumets menu --> Give all args, separated by space
+
+3. Right click on module, Got to Run --> Scala Application
+
+
+Executing with spark in commandline:
+------------------------------------
+
+1. Check the link - http://spark.apache.org/docs/1.6.1/submitting-applications.html
+2. To get the fatjar for commandline execution - Execute "sbt assembly" under the project name.
