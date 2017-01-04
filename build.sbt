@@ -5,11 +5,18 @@ version := "1.0"
 scalaVersion := "2.10.4"
 val sparkVersion = "1.6.1"
 
+/*
+!!!!IMPORTANT!!!!!!!!!!!!
+Make sure RedhsiftJDBCJar is available in the lib folder for this sbt project. Else connections to redshift will
+fail with Class not found error.
+*/
 
 libraryDependencies ++= Seq("org.apache.spark" % "spark-core_2.10" % sparkVersion,
                             "org.apache.spark" % "spark-streaming_2.10" % sparkVersion,
                             "org.apache.spark" % "spark-graphx_2.10" % sparkVersion,
-                            "org.apache.spark" % "spark-sql_2.10" % sparkVersion
+                            "org.apache.spark" % "spark-sql_2.10" % sparkVersion,
+                            "com.databricks" % "spark-csv_2.10" % "1.4.0" % "compile",
+                            "postgresql" % "postgresql" % "9.1-901-1.jdbc4"
                             )
 /*
 if a project uses a particular version of scala, but a transitive dependency uses one of the scala-lang optionals
